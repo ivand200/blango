@@ -52,6 +52,7 @@ class  Dev(Configuration):
       'django.contrib.messages',
       'django.contrib.staticfiles',
     
+      'blango_auth',    
       'blog',
 
       'crispy_forms',
@@ -122,6 +123,8 @@ class  Dev(Configuration):
           'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
       },
   ]
+  
+  AUTH_USER_MODEL = "blango_auth.User"
   
   PASSWORD_HASHERS = [
     'django.contrib.auth.hashers.Argon2PasswordHasher',
