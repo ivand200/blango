@@ -60,6 +60,7 @@ class  Dev(Configuration):
       'crispy_bootstrap5',
       'debug_toolbar',
       'rest_framework',
+      'rest_framework.authtoken',
     
     "allauth",
     "allauth.account",
@@ -219,6 +220,14 @@ class  Dev(Configuration):
         "level": "DEBUG",
     },
     }
+  
+  REST_FRAMEWORK = {
+    "DEFAULT_AUTHRNTICATION_CLASSES": [
+      "rest_framework.authentication.BasicAuthentication",
+      "rest_framework.authentication.SessionAuthentication",
+      "rest_framework.authentication.TokenAuthentication",
+    ]
+  }
 
   
 class Prod(Dev):
