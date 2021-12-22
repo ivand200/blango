@@ -18,6 +18,7 @@ class CommentSerializer(serializers.ModelSerializer):
     fields = ["id", "creator", "content", "modified_at", "created_at"]
     readonly = ["modified_at", "created_at"]
 
+    
 class PostSerializer(serializers.ModelSerializer):
     tags = serializers.SlugRelatedField(
         slug_field="value", many=True, 
@@ -51,19 +52,19 @@ class PostDetailSerializer(PostSerializer):
 
         return instance
 
+class TagSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Tag 
+    fields = "__all__"
 
-
-    
-    
- 
-    
- 
-    
+"""
 class TagField(serializers.SlugRelatedField):
   def to_internal_value(self, data):
     try:
       return self.get_queryset().get_ot_create(value=data.lower())[0] 
     except (TypeError, VlaueError):
       self.fail(f"Tag value {data} is invalid")
+"""
+
 
     
