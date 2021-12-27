@@ -57,14 +57,14 @@ class TagSerializer(serializers.ModelSerializer):
     model = Tag 
     fields = "__all__"
 
-"""
+
 class TagField(serializers.SlugRelatedField):
   def to_internal_value(self, data):
     try:
       return self.get_queryset().get_ot_create(value=data.lower())[0] 
     except (TypeError, VlaueError):
       self.fail(f"Tag value {data} is invalid")
-"""
+
 
 
     
